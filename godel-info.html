@@ -16,12 +16,41 @@
   <li><a href="">Account</a></li>
     </ul>
   </header>
-    
+    <section>
     <img src="Images/milky-way.png" id="stars">
     <img src="Images/moon.png" id="moon">
     <img src="Images/mountain.png" id="mountain">
-    <h2></h2>
+    <h2 id="text" class="glowing-text">Information</h2>
+    <a href="#sec" id="btn">Explore</a>
     <img src="Images/road.png" id="road">
+    </section>
+    
+    <div class="sec" id="sec">
+    <h2>Parallax Scrolling Effect</h2>
+    <p> monday</p>
+    </div>
+    
+    <script>
+  let stars = document.getElementById('stars');
+  let moon = document.getElementById('moon');
+  let mountain = document.getElementById('mountain');
+  let road = document.getElementById('road');
+  let text = document.getElementById('text');
+  let btn = document.getElementById('btn');
+  let header = document.querySelector('header');
+
+  window.addEventListener('scroll', function () {
+    let value = window.scrollY;
+    stars.style.left = value * 0.25 + 'px';
+    moon.style.top = value * 1.05 + 'px';
+    moon.style.left = value * 0.5 + 'px';
+    mountain.style.top = value * 0 + 'px';
+    road.style.top = value * 0 + 'px';
+    text.style.marginTop = value * 1.75 + 'px';
+    header.style.top = value * 0.5 + 'px'
+  });
+</script>
+
 
   </body>
 </html>

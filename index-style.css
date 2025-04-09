@@ -461,7 +461,7 @@ h3{
 }
 
 .glowing-text {
-  font-size: 14px; /* Adjust font size */
+  font-size: 7.6vw;/* Adjust font size */
   color: white;
   font-weight: bold;
   animation: glow 1.5s ease-in-out infinite; /* Glow effect with infinite looping */

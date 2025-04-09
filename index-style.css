@@ -1,0 +1,590 @@
+*{
+  margin: 0;
+  padding: 0;
+} /* the * selector means "select all elements on the page." margin: 0; and padding: 0; remove all default spacing around elements */
+
+html, body {
+  overscroll-behavior: none;
+} /* tells the browser not to do any special behavior when you scroll past the top or bottom of a page */
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.header{
+  min-height: 100vh; /* Makes the .header element at least as tall as the full screen height */
+  width: 100%; /*Makes it stretch the full width of the screen */
+  background-image: linear-gradient(rgba(4,9,30,0.1), rgba(4,9,30,0.1)), url(Images/spacex-rocket-shooting.png); /* linear-gradient(a, b)	Fades from color a to color b   Always need a start and end colour*/
+  background-position: center;
+  background-size: cover; /* scales the image to fully cover the element, cropping if needed to keep it filling the area*/
+  position: relative; /* sets the element’s position context so that absolutely positioned child elements (like text or buttons) can be placed inside it based on this element*/
+}
+
+nav{
+  display: flex; /* turns the nav into a flexbox container */
+  padding: 2% 6%; /* 2% padding on the top & bottom, and 6% on the left & right (relative to the screen size) */
+  justify-content: space-between; /* inner spacing between the items*/
+  align-items: center; /*vertically centers the child elements within the nav bar*/
+}
+
+nav img{ /* this targets any <img> inside a <nav> element */
+  width: 150px;
+}
+
+.nav-links{
+  flex: 1; /* this tells the .nav-links container to take up all the remaining horizontal space in the nav bar*/
+  text-align: right; /*aligns the text (and inline elements) inside .nav-links to the right side of its space*/
+}
+
+.nav-links ul li{ /* means to apply these styles to every <li> that is inside a <ul>*/
+  list-style: none; /*removes the default bullet points from <li> elements*/
+  display: inline-block;/*makes each <li> behave like a box in a row*/
+  padding: 8px 12px; /* Adds spacing inside each item, top/bottom and left/right*/
+  position: relative;
+}
+
+.nav-links ul li a{ /*this styles the <a> tag — the clickable link*/
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav-links ul li::after{ /* adds fake content after an element*/
+  content: ''; /* required to create the pseudo-element, even if it shows nothing*/
+  width: 0%; /*starts as invisible (0 width)*/
+  height: 2px; /* a thin bar */
+  background: #f44336; /*bar colour*/
+  display: block; /*makes it behave like a block element. forces the ::after element to go to its own line, after the text, so it appears underneath*/
+  margin: auto; /*centers the underline under the text*/
+  transition: 0.5s;
+}
+
+.nav-links ul li:hover::after{
+  width: 100%;
+}
+
+.text-box {
+  width: 90%; /*makes the text box take up 90% of the screen width*/
+  color: #fff;
+  position: absolute; /*lets you freely place it anywhere inside the .header*/
+  top: 50%;
+  left: 50%; 
+  transform: translate(-50%, -50%); /* all used to adjust the box into center*/
+  text-align: center;
+}
+
+.text-box h1{
+  font-size: 62px;
+}
+
+.text-box p{
+  margin: 10px 0 40px; /* this is shorthand for top, right/left, bottom margins*/
+  font-size: 14px;
+  color: #fff;
+}
+
+.hero-btn{
+  display: inline-block; /*inline-block lets the element sit inline (next to other elements), but still behave like a box*/
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 12px 34px;
+  font-size: 13px;
+  background: transparent;
+  position: relative;
+  cursor: pointer; /* changes the mouse cursor to a pointer (hand)*/
+  
+}
+
+
+.hero-btn:hover{
+  border: 1px solid #f44336;
+  background: #f44336;
+  transition: 1s;
+  text-decoration: none;
+}
+
+nav .fa{ /*targets any element with a class of .fa inside a <nav>*/
+  display: none;
+}
+
+@media (max-width: 700px) { /*lets you apply different CSS depending on the screen size*/
+  .text-box h1 {
+    font-size: 20px;
+  }
+
+  .nav-links ul li {
+    display: block; /*stacks nav items vertically instead of in a row*/
+  }
+
+  .nav-links {
+    position: absolute;
+    background: #f44336;
+    height: 100vh;
+    width: 200px;
+    top: 0;
+    right: -200px;
+    text-align: left;
+    z-index: 2; /*brings it in front of other content*/
+    transition: 1s;
+  }
+
+  nav .fa { /*shows the Font Awesome icon*/
+    display: block;
+    color: #fff;
+    margin: 10px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .nav-links ul {
+    padding: 30px;
+  }
+}
+
+.nav-links ul li.no-underline::after {
+  content: none;
+}
+
+
+
+/*----------application-------*/
+
+.application{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+
+h1{
+  font-size: 36px;
+  font-weight: 600;
+}
+
+p{
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 22px;
+  padding: 10px
+}
+
+p1{
+  color: white;
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 22px;
+  padding: 10px
+}
+
+.row{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.application-col{
+  flex-basis: 31%; /* sets the base width of each column to 31%*/
+  background: #fff3f3;
+  color: black; /*default text color inside the column to black*/
+  border-radius: 10px; /*gives corners a smooth edge*/
+  margin-bottom: 5%; /*vertical spacing between rows*/
+  padding: 20px 12px;
+  box-sizing: border-box; /*ensures padding is included inside the width*/
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.application-col:hover {
+  box-shadow: 0 0 30px 10px rgba(175, 255, 221, 0.6);
+}
+
+.application-col p {
+  color: black;
+}
+
+h3{
+  text-align: center;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+@media(max-width: 700px){
+  .row{
+    flex-direction: column; /*changes the layout to vertical*/
+  }
+}
+
+
+/*--------server---------*/
+
+.server {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 50px;
+}
+
+
+.server-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* means if there's not enough space on one line, move the items to the next line*/
+  gap: 20px; /* optional spacing */
+}
+
+.server-col {
+  flex-basis: 32%;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden; /*ensures that anything inside the column that overflows is clipped or hidden*/
+}
+
+.server-col img {
+  width: 100%; /*makes the image take up the full width of the .server-col container*/
+  display: block;
+}
+
+.layer {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+
+.layer:hover {
+  background: rgba(9, 165, 76, 0.53);
+}
+
+.layer h3 {
+  width: 100%;
+  font-weight: 500;
+  color: #fff;
+  font-size: 26px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /* this centers the title horizontally inside its parent container*/
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.layer:hover h3 {
+  bottom: 49%;
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .server-row {
+    flex-direction: column;
+  }
+
+  .server-col {
+    flex-basis: 100%;
+  }
+}
+
+
+
+
+
+/*------------- maximum-productivity--------*/
+
+.maximum-productivity{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.maximum-productivity-col{
+  flex-basis: 31%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  text-align: left;
+}
+
+.maximum-productivity-col img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.maximum-productivity-col p{
+  padding: 0;
+}
+
+.maximum-productivity-col h3{
+  margin-top: 16px;
+  margin-bottom: 15px;
+  text-align: left
+}
+
+
+
+/*---------testimonials--------*/
+
+.testimonials {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.testimonial-col {
+  flex-basis: 44%;
+  background: #fff3f3;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 25px;
+  display: flex; 
+  align-items: flex-start; /*aligns the contents of the card (the image and text) to the top of the .testimonial-col*/
+  text-align: left;
+}
+
+.testimonial-col img {
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-text p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color:black
+}
+
+.testimonial-text h3 {
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: left;
+  color:black
+}
+
+.testimonial-col .fa{
+  color: #f44336
+}
+
+@media(max-width:700px){
+  .testimonial-col img{
+    margin-left: 0;
+    margin-right: 15px;
+  }
+}
+
+.stars {
+  display: flex;
+  margin-top: 5px;
+}
+
+
+
+/*---------call to action---------*/
+
+.cta{
+  margin: 100px auto;
+  width: 80%;
+  background-image: url("Images/geometric-background.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.cta h1 {
+  color: #fff;
+  margin-bottom: 40px;
+  padding: 0;
+}
+
+@media(max-width:700px){
+  .cta h1{
+    font-size: 24px;
+  }
+}
+
+/*---------call to action---------*/
+
+.footer{
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.footer h4{
+  margin-bottom: 25px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+
+
+.icons .fa{
+  color: #f44336;
+  margin: 0 13px;
+  cursor: pointer;
+  padding: 18px 0;
+}
+
+
+/*------------------glowing text---------*/
+
+@keyframes glow { /*@keyframes is used to create animations by specifying the changes over time. it defines how an element will look at certain points in the animation (like 0%, 50%, 100%).*/
+  0% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff7f00, 0 0 40px #ff7f00, 0 0 50px #ff7f00, 0 0 75px #ff7f00; /*light shadow=glow*/
+  }
+  50% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff7f00, 0 0 50px #ff7f00, 0 0 60px #ff7f00, 0 0 90px #ff7f00;
+  }
+  100% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff7f00, 0 0 40px #ff7f00, 0 0 50px #ff7f00, 0 0 75px #ff7f00;
+  }
+}
+
+.glowing-text {
+  font-size: 14px; /* Adjust font size */
+  color: white;
+  font-weight: bold;
+  animation: glow 1.5s ease-in-out infinite; /* Glow effect with infinite looping */
+}
+
+
+/*----icon-----*/
+.user-icon-hover i.fa-solid {
+  display: none;
+}
+
+.user-icon-hover a:hover i.fa-regular {
+  display: none;
+}
+
+.user-icon-hover a:hover i.fa-solid {
+  display: inline;
+}
+
+
+/*-------------------glowing hovering effect-----------------*/
+
+@property --angle { /*used to define a CSS custom property*/
+  syntax: '<angle>'; /*ensures that the value of --angle is an angle*/
+  initial-value: 0deg;
+  inherits: false; /*makes sure that --angle doesn’t inherit its value from parent elements*/
+}
+
+.btn {
+  padding: 15px 40px;
+  background: transparent;
+  border: 2px solid transparent;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Neon blue rotating border */
+.btn::after {
+  content: "";
+  position: absolute; /*positions the ::after pseudo-element absolutely within the .btn container*/
+  inset: 0; /*ensures the pseudo-element spans the entire width and height of the button*/
+  padding: 2px;
+  border-radius: 12px;
+  background: conic-gradient(from var(--angle), #00f, #0ff, #00f); /*conic gradient creates a gradient that spins around a center point*/ /*from var(--angle) means the gradient will rotate based on the --angle variable, which is being dynamically updated.*/
+ mask:
+  linear-gradient(#fff 0 0) content-box, /*only covers the inner area of the button*/
+  linear-gradient(#fff 0 0); /*covers the entire pseudo-element*/
+  mask-composite: exclude; /*cuts out any areas where both masks overlap*/
+  z-index: -1;
+  animation: rotate 4s linear infinite; /*this applies an animation called rotate, runs for 4 seconds, linear and noacceleration, inifinitely*/
+  filter: blur(2px) brightness(1.8);
+  box-sizing: border-box; /*with border-box, the total size includes padding and border*/
+}
+
+/* Ambient rainbow fill on hover*/
+.btn::before { /*its transparent by default*/
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  z-index: -2;
+  transition: background 1.5s ease, filter 1.5s ease; /* any changes to the background or filter properties will transition over 1.5s*/
+  mask-image: linear-gradient(white, white); /* says "make entire element visible"*/
+  mask-size: 100% 100%;/*scales the mask to perfectly match the size of the element*/
+}
+
+/* On hover: soft ambient flow */
+.btn:hover::before {
+  background: linear-gradient(
+    45deg,
+   #f79289,   /* Soft Coral */
+    #fcd978,   /* Golden Yellow */
+    #FF9A8B,   /* Peach */
+    #98FF98,   /* Mint Green */
+    #48C9B0,   /* Teal */
+    #f79289    /* Back to Soft Coral */
+  ); /*creates a diagonal rainbow gradient at a 45-degree angle*/
+  background-size: 800%; /*makes the background 8 times larger than the element itself"*/
+  animation: rainbowFlow 60s ease infinite; /*applies an animation named rainbowFlow to the background of ::before*/ /* time to complete cycle, movement, and inifnitely*/
+  filter: blur(10px) brightness(1.3) saturate(1.3);
+}
+
+.btn:hover {
+  color: black;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg; /*updates gradually from its starting value (0deg) to 360deg. In this case in 4s*/
+  }
+}
+
+@keyframes rainbowFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 400% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+/*-----------blue font--------*/
+.blue-modern-font {
+  font-size: 48x;
+  font-weight: 600;
+  background: linear-gradient(to right, #00f5a0, #00d9f5);
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+
+
+

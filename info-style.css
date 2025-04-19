@@ -91,7 +91,7 @@ section img#road {
 
 #text{
     position: absolute;
-    right: 450px;
+    left: 50%;
     white-space: nowrap;
     z-index: 9;
     transform: translateY(-50px);
@@ -132,6 +132,9 @@ section img#road {
   transform: scale(1.2);
 }
 
+header img{
+  width: 150px;
+}
 
 
 /*------------------glowing text---------*/

@@ -92,9 +92,10 @@ section img#road {
 #text{
     position: absolute;
     left: 50%;
+    top: 50%;
     white-space: nowrap;
     z-index: 9;
-    transform: translateY(-50px);
+    transform: translate(-50%, -50%);
 }
 
 #btn{

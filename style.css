@@ -5,7 +5,7 @@
 
 html, body {
   overscroll-behavior: none;
-} /* tells the browser not to do any special behavior when you scroll past the top or bottom of a page */
+} 
 
 body {
   background-color: black;

@@ -4,17 +4,30 @@
   <head>
   <title>Godel | Information</title>
   <link rel="stylesheet" type="text/css" href="info-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   </head>
   <body>
   <header>
-    <a href="index2.html"><img src="Images/godel-logo-white.png"></a>
-  <ul>
-  <li><a href="">Home</a></li>
-  <li><a href="">Information</a></li>
-  <li><a href="">Quick-Help</a></li>
-  <li><a href="">Sign-In</a></li>
-  <li><a href="">Account</a></li>
-    </ul>
+  <nav>
+      <a href="index2.html"><img src="Images/godel-logo-white.png"></a>  <!----when clicking on this image, it moves to godel-index.html--->
+      <div class="nav-links" id="navLinks"> <!---id stands for identifier. id is like a more specific version of class; it's used when you want to target one exact element in detail--> 
+        <i class="fa fa-times" onclick="hideMenu()"></i> <!--<i> is an inline element used for icons or italic text. onclick="hideMenu()" means "when someone clicks this icon, run the JavaScript function called hideMenu()"-->
+        <ul>
+      <li><a href="index2.html">HOME</a></li> <!---<li> is listing--->
+      <li><a href="godel-info.html">INFORMATION</a></li>
+      <li><a href="godel-help.html">QUICK-HELP</a></li>
+      <li class="no-underline"><a href="godel-sign-in.html" class="hero-btn">SIGN IN</a></li>
+      <li class="user-icon-hover no-underline">
+  <a href="godel-account.html">
+    <i class="fa-regular fa-circle-user" style="font-size: 35px; position: relative; top: 8px;"></i>
+    <i class="fa-solid fa-circle-user" style="font-size: 35px; position: relative; top: 8px;"></i>
+  </a> </li>
+
+        </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i> <!-- means when someone clicks this icon, run the showMenu() function -->
+    </nav>
   </header>
     <section>
     <img src="Images/milky-way.png" id="stars">
@@ -50,6 +63,21 @@
     header.style.top = value * 0.5 + 'px'
   });
 </script>
+    
+    
+  
+  
+  <script>
+  var navLinks = document.getElementById("navLinks");
+  function showMenu() {
+    navLinks.style.right = "0";
+  }
+
+  function hideMenu() {
+    navLinks.style.right = "-200px";
+  }
+</script>
+
 
 
   </body>

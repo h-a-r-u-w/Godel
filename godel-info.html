@@ -1,20 +1,25 @@
 <!doctype html>
-
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8"> 
+    
   <title>Godel | Information</title>
-  <link rel="stylesheet" type="text/css" href="info-style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css"> <!--<link> is a self closing HTML tag used to link external sources. rel="stylesheet" tells the browser that the linked file is a CSS stylesheet-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  
 
   </head>
   <body>
   <header>
   <nav>
-      <a href="index2.html"><img src="Images/godel-logo-white.png"></a>  <!----when clicking on this image, it moves to godel-index.html--->
+       
+      <a href="index2.html"><img src="Images/godel-logo-white.png"></a><!----when clicking on this image, it moves to godel-index.html--->
+        <div class="frosted nav-container">
       <div class="nav-links" id="navLinks"> <!---id stands for identifier. id is like a more specific version of class; it's used when you want to target one exact element in detail--> 
         <i class="fa fa-times" onclick="hideMenu()"></i> <!--<i> is an inline element used for icons or italic text. onclick="hideMenu()" means "when someone clicks this icon, run the JavaScript function called hideMenu()"-->
         <ul>
-      <li><a href="index2.html">HOME</a></li> <!---<li> is listing--->
+      <li><a href="index2.html">HOME</a></li>
       <li><a href="godel-info.html">INFORMATION</a></li>
       <li><a href="godel-help.html">QUICK-HELP</a></li>
       <li class="no-underline"><a href="godel-sign-in.html" class="hero-btn">SIGN IN</a></li>
@@ -23,60 +28,112 @@
     <i class="fa-regular fa-circle-user" style="font-size: 35px; position: relative; top: 8px;"></i>
     <i class="fa-solid fa-circle-user" style="font-size: 35px; position: relative; top: 8px;"></i>
   </a> </li>
-
         </ul>
+      </div>
       </div>
       <i class="fa fa-bars" onclick="showMenu()"></i> <!-- means when someone clicks this icon, run the showMenu() function -->
     </nav>
   </header>
-    <section>
+    
+    
+    <section class="info-section">
     <img src="Images/milky-way.png" id="stars">
     <img src="Images/moon.png" id="moon">
     <img src="Images/mountain.png" id="mountain">
-    <h2 id="text" class="glowing-text">Information</h2>
+    <h2 id="text" class="glowing-text-big">Information</h2>
     <a href="#sec" id="btn">Explore</a>
     <img src="Images/road.png" id="road">
     </section>
     
     <div class="sec" id="sec">
-    <h2>Parallax Scrolling Effect</h2>
-    <p> monday</p>
+    <h2>What is Godel</h2>
+    <p> Godel is a Large-Languge-Model-powered Artificial Intellegence agent that runs on Dify. </p> <p>It is tailored to mainly answer questions involving numbers, such as mathematics and physics. </p>
     </div>
     
+    <div class="sec">
+    <h2>References</h2>
+    <h3> For Website </h3>
+    <ul>
+    <li><a href="https://www.youtube.com/watch?v=oYRda7UtuhA&ab_channel=GreatStack">https://www.youtube.com/watch?v=oYRda7UtuhA&ab_channel=GreatStack</a></li>
+    <li><a href="https://youtu.be/1wfeqDyMUx4?si=A5UqCzpBevQCgETu">https://youtu.be/1wfeqDyMUx4?si=A5UqCzpBevQCgETu</a></li>
+    <li><a href="https://youtu.be/ezP4kbOvs_E?si=id--pxJ1VkCGmoTH">https://youtu.be/ezP4kbOvs_E?si=id--pxJ1VkCGmoTH</a></li>
+    <li><a href="https://youtu.be/b_8fHNIHFk4?si=dpgRWuEFyNCXhxTo">https://youtu.be/b_8fHNIHFk4?si=dpgRWuEFyNCXhxTo</a></li>
+    <li><a href="https://www.w3schools.com/howto/howto_css_glowing_text.asp">https://www.w3schools.com/howto/howto_css_glowing_text.asp</a></li>
+      </ul>
+    <br><br><br>
+    <h3> For Images </h3>
+    <a href="https://unsplash.com/">https://unsplash.com/</a>
+        <br><br><br>
+    <h3> For Godel </h3>
+    <a href="https://dify.ai/">https://dify.ai/</a>
+    </div>
+    
+    
+    
+    
+    <section class="footer">
+  <h4> About Us</h4>
+  <p>This is a project of Haru Watanabe</p>
+  
+  <div class="icons">
+      <a href="godel-help.html"><i class="fa fa-envelope"></i></a>
+  </div>
+  </section>
+
+    
     <script>
-  let stars = document.getElementById('stars');
-  let moon = document.getElementById('moon');
+  let stars = document.getElementById('stars'); /*these lines are telling JavaScript to find HTML elements with the IDs*/
+  let moon = document.getElementById('moon'); /* when you say let something =, you can just say that something when writing java script*/
   let mountain = document.getElementById('mountain');
   let road = document.getElementById('road');
   let text = document.getElementById('text');
   let btn = document.getElementById('btn');
-  let header = document.querySelector('header');
+  let header = document.querySelector('header'); /*so querySelector is simply a more flexible version of get element */
 
-  window.addEventListener('scroll', function () {
-    let value = window.scrollY;
-    stars.style.left = value * 0.25 + 'px';
+  window.addEventListener('scroll', function () { /* window = the whole browser window. addEventListener('scroll', ...) = listen for the scroll event. function () { ... } = the code to run when scrolling happens */
+    let value = window.scrollY; /*scrollY = the number of pixels the page has been scrolled down vertically. Value now holds that number*/
+    stars.style.left = value * 0.25 + 'px'; /* .style.left mean to move the photo to the right. value * 0.25 this makes the movement slower than the scroll. + 'px' makes sure the unit is in pixel.*/
     moon.style.top = value * 1.05 + 'px';
     moon.style.left = value * 0.5 + 'px';
     mountain.style.top = value * 0 + 'px';
     road.style.top = value * 0 + 'px';
-    text.style.marginTop = value * 1.75 + 'px';
-    header.style.top = value * 0.5 + 'px'
+    text.style.marginTop = value * 1.75 + 'px'; /* refers to the space between the element and the thing above it*/
   });
 </script>
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+  <!-----JavaScript for Toggle Menu---------->
+  <script> //Everything between <script> and <script> is JavaScript code that runs on this html
+    
+    var navLinks = document.getElementById("navLinks");  //it means “find the HTML element with the ID navLinks , and store it in a variable called navLinks, so I can use it later.”
+    function showMenu(){ //This defines a function called showMenu.
+      navLinks.style.right = "0";
+    } 
+    
+    function hideMenu(){
+      navLinks.style.right = "-200px";
+    }
+  </script>
   
   
-  <script>
-  var navLinks = document.getElementById("navLinks");
-  function showMenu() {
-    navLinks.style.right = "0";
-  }
-
-  function hideMenu() {
-    navLinks.style.right = "-200px";
-  }
+  
+  
+  
+  
+  <!------------------------------------AOS scroll animations ------------------------------------------->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script> <!--loads the AOS JavaScript file from the internet-->
+<script>
+  AOS.init(); //tells the browser: “Start AOS!"
 </script>
+
 
 
 

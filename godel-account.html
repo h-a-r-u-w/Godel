@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Under Construction</title>
+
   <style>
     body {
       background-color: #111;
       color: #fff;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 48;
-      text-align: center;
-    }
-    .message {
-      max-width: 600px;
+      justify-content: center; /*Horizontally centres all the content inside the body*/
+      align-items: center; /*Vertically centres everything inside the body*/
+      height: 100vh; /*Sets the height of the <body> to 100% of the viewport height*/
+      text-align: center; /*Centres the text inside any block elements horizontally*/
+      background: url(Images/fox.png) no-repeat center center; /* make sure image dont repeat, and centers the image horizontally and vertically*/
+      background-size: cover;
+
     }
     h1 {
       font-size: 3em;
@@ -32,11 +32,11 @@
   </style>
 </head>
 <body>
-  <div class="message">
+  <div>
     <h1>Under Construction</h1>
-      <p>This page is still being built. Please check back soon!</p>
+      <p class="frosted">This page is still being built. Please check back soon!</p>
       <br>
-      <a href="index2.html">Click here to go to homepage</a>
+      <a href="index2.html" class="frosted">Click here to go to homepage</a>
   </div>
 </body>
 </html>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en"> <!--the languge of this page is english-->
+<head> <!-- holds invisible info like title, CSS, fonts, scripts-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- The name acts like a label, and the content is the value of that label. Viewport=(the visible area of the page)-->
+  <meta charset="UTF-8"> <!--Means to use UTF-8 encoding, kind of like the way to decode letters-->
   <title>Welcom | Godel</title>
   <link rel="stylesheet" href="style.css"> <!--<link> is a self closing HTML tag used to link external sources. rel="stylesheet" tells the browser that the linked file is a CSS stylesheet-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
@@ -9,43 +10,52 @@
   
 
 </head> 
-<body>
-  <section class="header">  <!----it has a class called header on CSS-->
-    <nav>
-      <a href="index2.html"><img src="Images/godel-logo-white.png"></a>  <!----when clicking on this image, it moves to godel-index.html--->
+<body> <!--holds everything that appears on the screen-->
+  <header> <!-- <header> tag defines the top section of a webpage or part of a page.-->
+    <nav> <!-- <nav> is a semantic tag, which means: It tells the browser that: “These links are important for navigating the site” -->
+      
+      <a href="index2.html"><img src="Images/godel-logo-white.png"></a>
+     
+      
+        <div class="frosted nav-container">
       <div class="nav-links" id="navLinks"> <!---id stands for identifier. id is like a more specific version of class; it's used when you want to target one exact element in detail--> 
         <i class="fa fa-times" onclick="hideMenu()"></i> <!--<i> is an inline element used for icons or italic text. onclick="hideMenu()" means "when someone clicks this icon, run the JavaScript function called hideMenu()"-->
-        <ul>
-      <li><a href="index2.html">HOME</a></li> <!---<li> is listing--->
+        
+        <ul> <!-- Means unordered list. <li> have to be in either ul or ol -->
+      <li><a href="index2.html">HOME</a></li>
       <li><a href="godel-info.html">INFORMATION</a></li>
       <li><a href="godel-help.html">QUICK-HELP</a></li>
       <li class="no-underline"><a href="godel-sign-in.html" class="hero-btn">SIGN IN</a></li>
-      <li class="user-icon-hover no-underline">
+          
+  <li class="user-icon-hover no-underline">
   <a href="godel-account.html">
     <i class="fa-regular fa-circle-user" style="font-size: 35px; position: relative; top: 8px;"></i>
     <i class="fa-solid fa-circle-user" style="font-size: 35px; position: relative; top: 8px;"></i>
-  </a> </li>
+  </a> 
+  </li>
 
         </ul>
       </div>
+      </div>
       <i class="fa fa-bars" onclick="showMenu()"></i> <!-- means when someone clicks this icon, run the showMenu() function -->
     </nav>
+  </header>
   
+  <section class="header">
   <div class="text-box">
   <h1 data-aos="zoom-in" data-aos-delay="100">Welcome to Godel</h1> <!-- data-aos talks directly to AOS-->
   <p data-aos="fade-up" data-aos-delay="500"> Best Generative Artificial Intellegence for Mathematics</p>
   <a href="" class="btn"> Let's Get Started For Free</a>
     </div>
-  
   </section>
   
   
   <!----------------Course=Application-------------------->
 <section class="application" data-aos="fade-up">
   <h1 data-aos="fade-up">What We Offer</h1>
-  <p data-aos="fade-up" data-aos-delay="50" class="glowing-text">Many Ways of Assistance</p>
+  <p data-aos="fade-up" data-aos-delay="50" class="glowing-text-small">Many Ways of Assistance</p>
 
-  <div class="row"> <!-- div is pretty much smaller part of section--->
+  <div class="row"> <!-- div is pretty much smaller part of section, and is not semantic like section--->
     <div class="application-col" data-aos="fade-up" data-aos-delay="100">
       <h3>Calculus</h3>
       <p>Help you with calculus.</p>
@@ -202,11 +212,11 @@
 
   
   <!-----JavaScript for Toggle Menu---------->
-  <script> //Everything between <script> and <script> is JavaScript code that runs on this html
+  <script> //Everything between <script> is JavaScript code that runs on this html
     
-    var navLinks = document.getElementById("navLinks");  //it means “find the HTML element with the ID navLinks , and store it in a variable called navLinks, so I can use it later.”
+    let navLinks = document.getElementById("navLinks");  //these lines are telling JavaScript to find HTML elements with the IDs. when you say let something =, you can just say that something when writing java script
     function showMenu(){ //This defines a function called showMenu.
-      navLinks.style.right = "0";
+      navLinks.style.right = "0"; //right edge is at 0 pixels from the right side of the screen
     } 
     
     function hideMenu(){

@@ -4,26 +4,26 @@
     <meta charset="UTF-8"> 
     
   <title>Godel | Information</title>
-  <link rel="stylesheet" href="CSS/style.css"> <!--<link> is a self closing HTML tag used to link external sources. rel="stylesheet" tells the browser that the linked file is a CSS stylesheet-->
+  <link rel="stylesheet" href="css/style.css"> <!--<link> is a HTML tag used to link external sources. rel="stylesheet" tells the browser that the linked file is a CSS stylesheet-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   
 
   </head>
   <body>
-  <header> <!-- <header> tag defines the top section of a webpage or part of a page.-->
-    <nav> <!-- <nav> is a semantic tag, which means: It tells the browser that: “These links are important for navigating the site” -->
+  <header> <!-- <header> tag defines the top section of a webpage or part of a page-->
+    <nav> <!-- <nav> is a semantic tag, which means: It tells the browser that these links are  for navigating the site-->
       
-      <a href="index.html"><img src="Images/godel-logo-white.png"></a>
+      <a href="index.html"><img src="Images/godel-logo-white.png" alt="image of logo"></a>
      
       
         <div class="frosted nav-container">
       <div class="nav-links" id="navLinks"> <!---id stands for identifier. id is like a more specific version of class; it's used when you want to target one exact element in detail--> 
         
-        <ul> <!-- Means unordered list. <li> have to be in either ul or ol -->
+        <ul> 
       <li><a href="index.html">HOME</a></li>
       <li><a href="godel-info.html">INFORMATION</a></li>
-      <li><a href="godel-what-is-this.html">WHAT IS THIS?</a></li>   
+      <li><a href="godel-about.html">WHAT IS THIS?</a></li>   
       <li><a href="godel-contact.html">CONTACT US</a></li>
 
   
@@ -35,12 +35,12 @@
   </header>    
     
     <section class="info-section">
-    <img src="Images/milky-way.png" id="stars">
-    <img src="Images/moon.png" id="moon">
-    <img src="Images/mountain.png" id="mountain">
+    <img src="Images/milky-way.png" id="stars" alt="image of a starry sky">
+    <img src="Images/moon.png" id="moon" alt="image of a moon">
+    <img src="Images/mountain.png" id="mountain" alt="image of a mountain">
     <h2 id="text" class="glowing-text-big">Information</h2>
     <a href="#sec" id="btn">Scroll for Info</a>
-    <img src="Images/road.png" id="road">
+    <img src="Images/road.png" id="road" alt="image of a road">
     </section>
     
   <!----------------Course=Application-------------------->
@@ -48,7 +48,7 @@
   <h1 data-aos="fade-up">What We Offer</h1>
   <p data-aos="fade-up" data-aos-delay="50" class="glowing-text-small">Many Ways of Assistance</p>
 
-  <div class="row"> <!-- div is pretty much smaller part of section, and is not semantic like section--->
+  <div class="row"> <!-- div is pretty much smaller part of section--->
     <div class="application-col" data-aos="fade-up" data-aos-delay="100">
       <h3>Calculus</h3>
       <p>Help you with calculus.</p>
@@ -77,21 +77,21 @@
   <div class="server-row">
 
     <div class="server-col">
-      <img src="Images/newyork.png" data-aos="zoom-in" data-aos-delay="100" alt="New York Server">
+      <img src="Images/newyork.png" data-aos="zoom-in" data-aos-delay="100" alt="New York">
       <div class="layer">
         <h3>Hello!</h3>
       </div>
     </div>
 
     <div class="server-col">
-      <img src="Images/france.png" data-aos="zoom-in" data-aos-delay="200" alt="Paris Server">
+      <img src="Images/france.png" data-aos="zoom-in" data-aos-delay="200" alt="Paris">
       <div class="layer">
         <h3>Bonjour!</h3>
       </div>
     </div>
 
     <div class="server-col">
-      <img src="Images/japan.png" data-aos="zoom-in" data-aos-delay="300" alt="Tokyo Server">
+      <img src="Images/japan.png" data-aos="zoom-in" data-aos-delay="300" alt="Tokyo">
       <div class="layer">
         <h3>こんにちは!</h3>
       </div>
@@ -112,19 +112,19 @@
   <div class="row">
   
   <div class="maximum-productivity-col">
-    <img src="Images/mechanical-brain.png" data-aos="fade-down" data-aos-delay="100">
+    <img src="Images/mechanical-brain.png" data-aos="fade-down" data-aos-delay="100" alt="mechanical brain image">
     <h3 data-aos="fade-up" data-aos-delay="125">Un-Human</h3>
     <p data-aos="fade-up" data-aos-delay="125">Overload Your Brain.</p>
     </div>
     
   <div class="maximum-productivity-col">
-    <img src="Images/stars-in-rotation.png" data-aos="fade-down" data-aos-delay="200">
+    <img src="Images/stars-in-rotation.png" data-aos="fade-down" data-aos-delay="200" alt="image of a star">
     <h3 data-aos="fade-up" data-aos-delay="225">E=mc^2</h3>
     <p data-aos="fade-up" data-aos-delay="225">Learn in the Speed of Light.</p>
     </div>
     
   <div class="maximum-productivity-col">
-    <img src="Images/black-hole.png" data-aos="fade-down" data-aos-delay="300">
+    <img src="Images/black-hole.png" data-aos="fade-down" data-aos-delay="300" alt="image of a blackhole">
     <h3 data-aos="fade-up" data-aos-delay="325">Like a Black Hole</h3>
     <p data-aos="fade-up" data-aos-delay="325">Absorb Knowledge Like a Blackhole Does.</p>
     </div>
@@ -140,14 +140,14 @@
 <!------------testimonials--------->
   
 <section class="testimonials">
-<h1>Qualified by the Curious</h1> <!-- <span> is an inline container used to target or style just part of some text-->
+<h1>Qualified by the Curious</h1>
 <br>
   <p>It's like a Brilliant, Genius Teacher, teaching you one on one.</p>
 
   <div class="row">
 
     <div class="testimonial-col">
-      <img src="Images/albert-einstein.png">
+      <img src="Images/albert-einstein.png" alt="image of albert einstein">
       <div class="testimonial-text">
         <p>"I asked it one question. It answered three I hadnt thought of yet."</p>
         <h3>Albert Einstein</h3>
@@ -162,7 +162,7 @@
     </div> 
 
     <div class="testimonial-col">
-      <img src="Images/robert-oppenheimer.png">
+      <img src="Images/robert-oppenheimer.png" alt="image of oppenheimer">
       <div class="testimonial-text">
         <p>"A tool of immense power. I can absolutely hear the music now. They won't understand it. Until they use it."</p>
         <h3>Robert Oppenheimer</h3>
@@ -192,11 +192,12 @@
 <!---------Footer--------->
 
 <section class="footer">
-  <h4> About Us</h4>
-  <p>This is a project of Haru Watanabe</p>
-  
+  <h4>Contacts</h4>
+  <p>Contact by clicking on this envelope</p>
   <div class="icons">
+        <a href="godel-contact.html">
       <i class="fa fa-envelope"></i>
+    </a>
   </div>
   </section>
     
@@ -207,7 +208,7 @@
   let road = document.getElementById('road');
   let text = document.getElementById('text');
   let btn = document.getElementById('btn');
-  let header = document.querySelector('header'); /*so querySelector is simply a more flexible version of get element */
+  let header = document.querySelector('header'); /*querySelector is simply a more flexible version of get element */
 
   window.addEventListener('scroll', function () { /* window = the whole browser window. addEventListener('scroll', ...) = listen for the scroll event. function () { ... } = the code to run when scrolling happens */
     let value = window.scrollY; /*scrollY = the number of pixels the page has been scrolled down vertically. Value now holds that number*/
@@ -232,8 +233,8 @@
   <!-----JavaScript for Toggle Menu---------->
   <script> //Everything between <script> and <script> is JavaScript code that runs on this html
     
-    var navLinks = document.getElementById("navLinks");  //it means “find the HTML element with the ID navLinks , and store it in a variable called navLinks, so I can use it later.”
-    function showMenu(){ //This defines a function called showMenu.
+    var navLinks = document.getElementById("navLinks");  //it means find the HTML element with the ID navLinks , and store it in a variable called navLinks”
+    function showMenu(){ //This defines a function called showMenu
       navLinks.style.right = "0";
     } 
     
@@ -250,7 +251,7 @@
   <!------------------------------------AOS scroll animations ------------------------------------------->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script> <!--loads the AOS JavaScript file from the internet-->
 <script>
-  AOS.init(); //tells the browser: “Start AOS!"
+  AOS.init(); //tells the browser start IOS
 </script>
 
 

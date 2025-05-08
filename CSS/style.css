@@ -3,7 +3,7 @@
   padding: 0; /*space inside box*/
   box-sizing: border-box;
   scroll-behavior: smooth;
-} /* the * selector means "select all elements on the page." margin (outside space): 0; and padding (inside space): 0; remove all default spacing around elements */
+} /* the * selector means select all elements on the page */
 
 html, body {
   overscroll-behavior: none;
@@ -35,7 +35,7 @@ header {
 /*-------------------navigation bar and logo-----------------*/
 
 nav{
-  display: flex; /* turns the nav into a flexbox container */
+  display: flex; /* turns the nav into a flexbox container, allwoing the direct child element in it to be controlled */
   justify-content: space-between; /* inner spacing between the items*/
   align-items: center; /*vertically centers the child elements within the nav bar*/
 }
@@ -204,7 +204,7 @@ h3{
 
 /*------------------glowing text---------*/
 
-@keyframes glow { /*@keyframes is used to create animations by specifying the changes over time. it defines how an element will look at certain points in the animation (like 0%, 50%, 100%).*/
+@keyframes glow { /*@keyframes is used to create animations by specifying the changes over time.*/
   0% {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff7f00, 0 0 40px #ff7f00, 0 0 50px #ff7f00, 0 0 75px #ff7f00; /*light shadow=glow, text-shadow: x-offset y-offset blur-radius color*/
   }
@@ -217,17 +217,17 @@ h3{
 }
 
 .glowing-text-small {
-  font-size: 14px;/* Adjust font size */
+  font-size: 14px;
   color: white;
   font-weight: bold;
-  animation: glow 1.5s ease-in-out infinite; /* Glow effect with infinite looping */
+  animation: glow 1.5s ease-in-out infinite; 
 }
 
 .glowing-text-big {
-  font-size: 7.5vw;/* Adjust font size */
+  font-size: 7.5vw;
   color: white;
   font-weight: bold;
-  animation: glow 1.5s ease-in-out infinite; /* Glow effect with infinite looping */
+  animation: glow 1.5s ease-in-out infinite; 
 }
 
 
@@ -533,7 +533,6 @@ h1.blue-modern-font{
 }
 
 
-
 /*-------------------glowing sun-----------------*/
 
 .glow-orange {
@@ -612,6 +611,7 @@ h1.blue-modern-font{
     padding: 100px;
     background:black;
   text-align: center;
+  list-style-type: none; 
 }
 
 .sec h2{
@@ -633,6 +633,13 @@ h1.blue-modern-font{
   transform: scale(1.2); /* make the element 20% larger in both width and height — from its original size*/
 }
 
+
+
+/*-------------------no bullet points-----------------*/
+
+.no-bullets {
+  list-style-type: none;
+}
 
 
 

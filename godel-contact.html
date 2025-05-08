@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"> 
+    
+  <title>Godel | Contact Us</title>
+  <link rel="stylesheet" href="CSS/style.css"> <!--<link> is a self closing HTML tag used to link external sources. rel="stylesheet" tells the browser that the linked file is a CSS stylesheet-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://docs.google.com/forms/d/e/1FAIpQLSc-nJPX4-geWTwIV_Omp_Y-0i73YzUv2GFh50NKSJIEM4NHeA/viewform?usp=header" rel="stylesheet">
+
+  
+
+  </head>
+  <body>
+  <header> <!-- <header> tag defines the top section of a webpage or part of a page.-->
+    <nav> <!-- <nav> is a semantic tag, which means: It tells the browser that: “These links are important for navigating the site” -->
+      
+      <a href="index.html"><img src="Images/godel-logo-white.png"></a>
+     
+      
+        <div class="frosted nav-container">
+      <div class="nav-links" id="navLinks"> <!---id stands for identifier. id is like a more specific version of class; it's used when you want to target one exact element in detail--> 
+        
+        <ul> <!-- Means unordered list. <li> have to be in either ul or ol -->
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="godel-info.html">INFORMATION</a></li>
+      <li><a href="godel-what-is-this.html">WHAT IS THIS?</a></li>
+      <li><a href="godel-contact.html">CONTACT US</a></li>
+
+        </ul>
+      </div>
+      </div>
+    </nav>
+  </header>    
+    
+    <section class="info-section">
+    <img src="Images/pixel-sky.png" id="stars">
+    <img class="glow-orange" src="Images/pixe-sun.png" id="sun">
+    <img src="Images/mountain.png" id="mountain">
+    <h1 id="text" class="red-modern-font">Contact Us</h1>
+    <a href="#sec" id="btn">Scroll to Contact Us</a>
+    <img src="Images/road.png" id="road">
+    </section>
+    
+  <div style="display: flex; justify-content: center;">
+<div id="ff-compose"></div>
+<script async defer src="https://formfacade.com/include/103633744539140058394/form/1FAIpQLSc-nJPX4-geWTwIV_Omp_Y-0i73YzUv2GFh50NKSJIEM4NHeA/classic.js?div=ff-compose"></script>
+
+    
+    <script>
+  let stars = document.getElementById('stars'); /*these lines are telling JavaScript to find HTML elements with the IDs*/
+  let sun = document.getElementById('sun'); /* when you say let something =, you can just say that something when writing java script*/
+  let mountain = document.getElementById('mountain');
+  let road = document.getElementById('road');
+  let text = document.getElementById('text');
+  let btn = document.getElementById('btn');
+  let header = document.querySelector('header'); /*so querySelector is simply a more flexible version of get element */
+
+  window.addEventListener('scroll', function () { /* window = the whole browser window. addEventListener('scroll', ...) = listen for the scroll event. function () { ... } = the code to run when scrolling happens */
+    let value = window.scrollY; /*scrollY = the number of pixels the page has been scrolled down vertically. Value now holds that number*/
+    stars.style.left = value * 0.25 + 'px'; /* .style.left mean to move the photo to the right. value * 0.25 this makes the movement slower than the scroll. + 'px' makes sure the unit is in pixel.*/
+    sun.style.top = value * 1.05 + 'px';
+    sun.style.left = value * 0.5 + 'px';
+    mountain.style.top = value * 0 + 'px';
+    road.style.top = value * 0 + 'px';
+    text.style.marginTop = value * 1.75 + 'px'; /* refers to the space between the element and the thing above it*/
+  });
+</script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <!-----JavaScript for Toggle Menu---------->
+  <script> //Everything between <script> and <script> is JavaScript code that runs on this html
+    
+    var navLinks = document.getElementById("navLinks");  //it means “find the HTML element with the ID navLinks , and store it in a variable called navLinks, so I can use it later.”
+    function showMenu(){ //This defines a function called showMenu.
+      navLinks.style.right = "0";
+    } 
+    
+    function hideMenu(){
+      navLinks.style.right = "-200px";
+    }
+  </script>
+  
+  
+  
+  
+  
+  
+  <!------------------------------------AOS scroll animations ------------------------------------------->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script> <!--loads the AOS JavaScript file from the internet-->
+<script>
+  AOS.init(); //tells the browser: “Start AOS!"
+</script>
+
+
+
+
+  </body>
+</html>

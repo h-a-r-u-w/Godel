@@ -45,15 +45,11 @@ nav img{ /* this targets any <img> inside a <nav> element */
   margin: 30px 50px; /* px of space on top and bottom, px of space on left and right*/
 }
 
-.nav-links{
-  flex: 1; /* nav-links takes up all the remaining space in this row*/
-  text-align: right; /*aligns the text (and inline elements) inside .nav-links to the right side of its space*/
-}
-
 .nav-container {
   position: absolute;
   top: 45px;
-  right: 75px;}
+  right: 75px;
+}
 
 .nav-links ul li{ /* means to apply these styles to every <li> that is inside a <ul>*/
   list-style: none; /*removes the default bullet points from <li> elements*/
@@ -74,7 +70,7 @@ nav img{ /* this targets any <img> inside a <nav> element */
   height: 2px; /* a thin bar */
   background: #f44336; /*bar colour*/
   display: block; /*display: block forces the ::after pseudo-element to take up a new line beneath the content inside the <li>*/
-  margin: 0 auto; /*centers the underline under the text*/
+  margin: auto; /*centers the underline under the text*/
   transition: 0.5s;
 }
 
@@ -82,54 +78,9 @@ nav img{ /* this targets any <img> inside a <nav> element */
   width: 100%;
 }
 
-nav .fa{ /*targets any element with a class of .fa inside a <nav>*/
-  display: none;
-}
-
-
-
-/*-------------------navigation bar when screen is small-----------------*/
-
-@media (max-width: 700px) { /*lets you apply different CSS depending on the screen size*/
-  .text-box h1 {
-    font-size: 20px;
-  }
-
-  .nav-links ul li {
-    display: block; /*stacks nav items vertically instead of in a row*/
-  }
-
-  .nav-links {
-    position: absolute;
-    background: #f44336;
-    height: 100vh;
-    width: 200px;
-    top: 0;
-    right: -200px;
-    text-align: left;
-    z-index: 2; /*brings it in front of other content*/
-    transition: 1s;
-  }
-
-  nav .fa { /*shows the Font Awesome icon*/
-    display: block;
-    color: #fff;
-    margin: 10px;
-    font-size: 22px;
-    cursor: pointer;
-  }
-
-  .nav-links ul {
-    padding: 30px;
-  }
-}
-
 .nav-links ul li.no-underline::after {
-  content: none;
+  width:0%;
 }
-
-
-
 
 /*-------------------textbox on loading page-----------------*/
 
@@ -211,12 +162,6 @@ nav .fa{ /*targets any element with a class of .fa inside a <nav>*/
   margin-top: 5%;
   display: flex; /* lays out children horizontally in a row by default*/
   justify-content: space-between; /* spreads children evenly across the row, with equal spacing between them*/
-}
-
-@media(max-width: 700px){
-  .row{
-    flex-direction: column; /*changes the layout to vertical*/
-  }
 }
 
 
@@ -348,19 +293,6 @@ h3{
   opacity: 1;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  .server-row {
-    flex-direction: column;
-  }
-
-  .server-col {
-    flex-basis: 100%;
-  }
-}
-
-
-
 
 
 /*-------------------maximum productivity part-----------------*/
@@ -450,13 +382,6 @@ h3{
   color: #f44336
 }
 
-@media(max-width:700px){
-  .testimonial-col img{
-    margin-left: 0;
-    margin-right: 15px;
-  }
-}
-
 .stars {
   display: flex;
   margin-top: 5px;
@@ -483,13 +408,6 @@ h3{
   padding: 0;
 }
 
-@media(max-width:700px){
-  .cta h1{
-    font-size: 24px;
-  }
-}
-
-
 
 /*-------------------footer-----------------*/
 
@@ -514,28 +432,18 @@ h3{
   padding: 18px 0;
 }
 
+/*-------------------glowing ring effect on button-----------------*/
 
-/*-------------------account icon-----------------*/
-
-.user-icon-hover i.fa-solid {
-  display: none;
-}
-
-.user-icon-hover a:hover i.fa-regular {
-  display: none;
-}
-
-.user-icon-hover a:hover i.fa-solid {
-  display: inline;
-}
-
-
-/*-------------------glowing hovering effect on button-----------------*/
-
-@property --angle { /*used to define a CSS custom property*/
+@property --angle { /*used to define a CSS custom user defined variable*/
   syntax: '<angle>'; /*ensures that the value of --angle is an angle*/
   initial-value: 0deg;
   inherits: false; /*makes sure that --angle doesn’t inherit its value from parent elements, because it by default does*/
+}
+
+@keyframes rotate { /*specifying how an element should change over time*/
+  to {
+    --angle: 360deg; /*updates gradually from its starting value (0deg) to 360deg. In this case in 4s*/
+  }
 }
 
 .btn {
@@ -553,7 +461,7 @@ h3{
 }
 
 /* Neon blue rotating border */
-.btn::after {
+.btn::before {
   content: "";
   position: absolute; /*positions the ::after pseudo-element absolutely within the .btn container*/
   inset: 0; /*ensures the pseudo-element spans the entire width and height of the button*/
@@ -569,27 +477,44 @@ h3{
   filter: blur(2px) brightness(1.8);
 }
 
-.btn:hover {
-  color: black;
-  background: #f44336;
-  transition: 1s;
-  text-decoration: none;
-}
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 2px; /* matches the border thickness */
+  border-radius: 10px;
+  transition: background 0.3s ease-in-out;
+  z-index: -1;
 }
 
-@keyframes rotate {
-  to {
-    --angle: 360deg; /*updates gradually from its starting value (0deg) to 360deg. In this case in 4s*/
-  }
+.btn:hover::after {
+  background: #00ff3c; /* or any fill color */
+}
+
+.btn:hover {
+  color: black;
+  text-decoration: none;
 }
 
 
 
 /*-------------------blue font-----------------*/
 .blue-modern-font {
-  font-size: 48x;
+  font-size: 48px;
   font-weight: 600;
   background: linear-gradient(to right, #00f5a0, #00d9f5);
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+h1.blue-modern-font{
+  font-size: 7.5vw;
+}
+
+.red-modern-font {
+  font-size: 7.5vw;
+  font-weight: 600;
+  background: linear-gradient(to right, #FFC300, #FF5733);
   background-clip: text;
   color: transparent;
   display: inline-block;
@@ -603,9 +528,19 @@ h3{
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   border-radius: 12px;
-  padding: 1px 5px;
+  padding: 15px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
+
+
+
+/*-------------------glowing sun-----------------*/
+
+.glow-orange {
+  filter: drop-shadow(0 0 40px orange); /*horizontal, vertical, blur radius, color of the glow*/
+  transition: filter 0.3s ease-in-out;
+}
+
 
 
 /*-------------------------------------------------------------------------------------------------------for godel-info.html-----------------------------------------------------------------------------------------------------*/
@@ -624,9 +559,9 @@ h3{
 .info-section::before{ /*it creates a virtual element before the actual content of .info-section*/
     content: ''; /*required for ::before to work.*/
     position: absolute;
-    bottom: 0; /* The gradient bar is stuck to the bottom of .info-section*/
+    bottom: 0; /* the gradient bar is stuck to the bottom of .info-section*/
     width: 100%;
-    height: 100px; /*The gradient bar is 100px tall.*/
+    height: 100px; /*the gradient bar is 100px tall.*/
     background: linear-gradient(to top,black,transparent);
     z-index: 1000;
 }
@@ -667,6 +602,9 @@ h3{
     font-size: 1.5em;
     z-index: 9;
     transform: translateY(75px); /*moves up and down the button from original position*/
+  pointer-events: none;
+  cursor: default;
+
 }
 
 .sec{
@@ -686,14 +624,19 @@ h3{
 .sec p{
     font-size: 1.2em;
     color:white;
-    
 }
 
 .sec a{
   color: orangered;
-  list-style: none;
 }
 #stars {
   transform: scale(1.2); /* make the element 20% larger in both width and height — from its original size*/
 }
+
+
+
+
+
+
+
 

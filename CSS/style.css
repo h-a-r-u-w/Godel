@@ -244,7 +244,6 @@ h3{
 .server-row {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; /* means if there's not enough space on one line, move the items to the next line*/
   gap: 20px; /* optional spacing */
 }
 
@@ -434,64 +433,59 @@ h3{
 
 /*-------------------glowing ring effect on button-----------------*/
 
-@property --angle { /*used to define a CSS custom user defined variable*/
-  syntax: '<angle>'; /*ensures that the value of --angle is an angle*/
-  initial-value: 0deg;
-  inherits: false; /*makes sure that --angle doesn’t inherit its value from parent elements, because it by default does*/
+.card{
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  color:black;
+  text-decoration: none;
+
 }
 
-@keyframes rotate { /*specifying how an element should change over time*/
-  to {
-    --angle: 360deg; /*updates gradually from its starting value (0deg) to 360deg. In this case in 4s*/
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false
+}
+
+.card::after, .card::before{
+  content: '';
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), #00f, #0ff, #00f);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index:-1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+
+.card::before{
+  filter:blur(1.5rem);
+    opacity: 0.5;
+}
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg;
   }
 }
 
-.btn {
-  padding: 15px 40px;
-  background: transparent;
-  color: #fff;
-  font-weight: 500;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
+
+
+.card:hover::after {
+  background: #ff7f00; /* or any fill color */
 }
 
-/* Neon blue rotating border */
-.btn::before {
-  content: "";
-  position: absolute; /*positions the ::after pseudo-element absolutely within the .btn container*/
-  inset: 0; /*ensures the pseudo-element spans the entire width and height of the button*/
-  padding: 2px;
-  border-radius: 12px;
-  background: conic-gradient(from var(--angle), #00f, #0ff, #00f); /*conic gradient creates a gradient that spins around a center point*/ /*from var(--angle) means the gradient will rotate based on the --angle variable, which is being dynamically updated.*/
- mask:
-  linear-gradient(#fff 0 0) content-box, /*only covers the inner area of the button*/
-  linear-gradient(#fff 0 0); /*covers the entire pseudo-element*/
-  mask-composite: exclude; /*cuts out any areas where both masks overlap*/
-  z-index: -1;
-  animation: rotate 4s linear infinite; /*this applies an animation called rotate, runs for 4 seconds, linear and noacceleration, inifinitely*/
-  filter: blur(2px) brightness(1.8);
-}
-
-.btn::after {
-  content: "";
-  position: absolute;
-  inset: 2px; /* matches the border thickness */
-  border-radius: 10px;
-  transition: background 0.3s ease-in-out;
-  z-index: -1;
-}
-
-.btn:hover::after {
-  background: #00ff3c; /* or any fill color */
-}
-
-.btn:hover {
-  color: black;
+.card:hover {
   text-decoration: none;
 }
 
